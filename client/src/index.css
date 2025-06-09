@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide Replit watermark */
+.replitWatermark {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide Replit watermark (alternative selectors) */
+[data-testid="watermask"],
+div[style*="z-index: 2147483647"],
+div[style*="7px solid"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+ 
+    --primary: 145 42% 50%;
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+ 
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+ 
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+ 
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+ 
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 145 42% 50%;
+ 
+    --radius: 0.5rem;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .autora-card {
+    @apply bg-white border border-gray-200 shadow-sm rounded transition-all duration-300;
+  }
+
+  .autora-card:hover {
+    @apply shadow-md;
+  }
+
+  .autora-btn-primary {
+    @apply bg-[#49B265] text-white font-bold py-3 px-6 uppercase tracking-wide hover:bg-[#3c9652] transition-colors duration-200 rounded;
+  }
+
+  .autora-btn-secondary {
+    @apply bg-gray-800 text-white font-bold py-3 px-6 uppercase tracking-wide hover:bg-gray-700 transition-colors duration-200 rounded;
+  }
+
+  .autora-section {
+    @apply py-12 md:py-16;
+  }
+
+  .autora-section-title {
+    @apply text-2xl md:text-3xl font-bold mb-6;
+  }
+
+  .autora-highlight {
+    @apply text-[#49B265] font-bold;
+  }
+
+  .autora-list {
+    @apply list-disc ml-5 space-y-2;
+  }
+
+  .autora-list-item {
+    @apply text-base md:text-lg;
+  }
+
+  .animate-float {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+.text-autora-green { color: #49B265; }
+.bg-autora-green { background-color: #49B265; }
+.border-autora-green { border-color: #49B265; }
+
+/* For backward compatibility */
+.text-autora-red { color: #49B265; }
+.bg-autora-red { background-color: #49B265; }
+.border-autora-red { border-color: #49B265; }
+
+.bg-light-gray { background-color: #f8f8f8; }
+.bg-gray-light { background-color: #f5f5f5; }
+.bg-gray-medium { background-color: #e5e5e5; }
+
+.backdrop-blur-lg { backdrop-filter: blur(16px); }

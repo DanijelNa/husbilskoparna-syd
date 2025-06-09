@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250" height="50" viewBox="0 0 250 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; }
+    .green { fill: #49B265; }
+  </style>
+  <text x="10" y="33" class="text green" font-size="24">HUSBILSKOPARNA</text>
+  <rect x="10" y="38" width="230" height="3" class="green" />
+</svg>
