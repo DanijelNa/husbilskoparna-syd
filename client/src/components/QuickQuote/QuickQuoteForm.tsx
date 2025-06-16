@@ -59,8 +59,8 @@ export default function QuickQuoteForm() {
     console.log("Form submitted with data:", data);
 
     try {
-      // Call the API endpoint
-      const response = await fetch('/api/quick-quote', {
+      // Call Go high-level webhook directly
+      const webhookResponse = await fetch('https://services.leadconnectorhq.com/hooks/CIzCoguKoPyPtO4svjnu/webhook-trigger/cfc5757e-c301-40ad-87c0-2a755a1bc9bf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,30 +73,7 @@ export default function QuickQuoteForm() {
         }),
       });
       
-      const result = await response.json();
-      
-      if (result.success) {
-        // Call Go high-level webhook
-        try {
-          const webhookResponse = await fetch('https://services.leadconnectorhq.com/hooks/CIzCoguKoPyPtO4svjnu/webhook-trigger/cfc5757e-c301-40ad-87c0-2a755a1bc9bf', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name: data.name,
-              email: data.email,
-              phone: data.phone,
-              registrationNumber: data.registrationNumber
-            }),
-          });
-          if (!webhookResponse.ok) {
-            console.error('Go high-level webhook error:', await webhookResponse.text());
-          }
-        } catch (webhookError) {
-          console.error('Go high-level webhook error:', webhookError);
-        }
-        
+      if (webhookResponse.ok) {
         // Track form submission event
         trackFormSubmit('quick_quote', {
           form_location: 'quote_page',
@@ -109,15 +86,10 @@ export default function QuickQuoteForm() {
           description: "Vi kontaktar dig så snart som möjligt.",
         });
         
-        // For development: Log the email preview URL
-        if (result.previewUrl) {
-          console.log("Email preview URL:", result.previewUrl);
-        }
-        
         // Move to thank you step
         setStep(2);
       } else {
-        throw new Error(result.message || 'Unknown error');
+        throw new Error('Failed to submit form');
       }
     } catch (error) {
       console.error("Form submission error:", error);
