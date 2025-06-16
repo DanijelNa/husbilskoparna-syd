@@ -1,20 +1,21 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-// Create a test account using Ethereal - a fake SMTP service for testing
-// This creates a temporary email account that can receive emails
-// You can view the emails in the Ethereal web interface (link will be logged to console)
-async function createTestAccount() {
-  const testAccount = await nodemailer.createTestAccount();
-  return nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
-    },
-  });
-}
+// Remove the createTestAccount function as we will use Resend directly
+// // Create a test account using Ethereal - a fake SMTP service for testing
+// // This creates a temporary email account that can receive emails
+// // You can view the emails in the Ethereal web interface (link will be logged to console)
+// async function createTestAccount() {
+//   const testAccount = await nodemailer.createTestAccount();
+//   return nodemailer.createTransport({
+//     host: 'smtp.ethereal.email',
+//     port: 587,
+//     secure: false,
+//     auth: {
+//       user: testAccount.user,
+//       pass: testAccount.pass,
+//     },
+//   });
+// }
 
 // Email template for quick quote form submissions
 function createEmailTemplate(data: {
@@ -69,30 +70,34 @@ export async function sendQuickQuoteEmail(data: {
   registrationNumber: string;
 }) {
   try {
-    // Create test account (free ethereal email)
-    const transporter = await createTestAccount();
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    
+    // Ensure the sender details are correctly configured for production
+    const senderName = process.env.EMAIL_SENDER_NAME || 'Husbilsköparna Syd';
+    const senderAddress = process.env.EMAIL_SENDER_ADDRESS || 'noreply@husbilskoparna.se';
     
     // Send email
-    const info = await transporter.sendMail({
-      from: '"Husbilsköparna Syd Webbplats" <no-reply@husbilskoparna.se>',
+    const info = await resend.emails.send({
+      from: `${senderName} <${senderAddress}>`,
       to: 'info@husbilskoparna.se', // This would be the actual recipient in production
       subject: `Ny värderingsförfrågan från ${data.name}`,
       html: createEmailTemplate(data),
     });
 
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    if (info.error) {
+      console.error("Error sending email from Resend:", info.error);
+    }
+    console.log('Message sent: %s', (info as any).id);
     
     return {
       success: true,
-      messageId: info.messageId,
-      previewUrl: nodemailer.getTestMessageUrl(info)
+      messageId: (info as any).id,
     };
   } catch (error) {
-    console.error('Error sending email:', error);
-    return { 
-      success: false, 
-      error: (error as Error).message 
+    console.error("Error sending email:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "An unknown error occurred",
     };
   }
 }

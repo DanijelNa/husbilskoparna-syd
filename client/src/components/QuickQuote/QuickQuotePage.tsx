@@ -26,7 +26,7 @@ export default function QuickQuotePage() {
         </div>
 
         <div className="space-y-6 text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold">Få en snabb värdering</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">Kontakta oss nu</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Ange registreringsnummer och dina kontaktuppgifter nedan för att få en kostnadsfri värdering. 
             Vi återkommer med ett erbjudande inom 24 timmar.

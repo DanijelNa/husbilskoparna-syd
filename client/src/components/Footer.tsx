@@ -18,7 +18,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-300 mb-4">
-              Husbilsköparna Syd köper och säljer husbilar över hela Sverige. Kontakta oss för en värdering eller besök vår anläggning.
+              Husbilsköparna Syd köper och säljer husbilar över hela Sverige. Kontakta oss idag för en snabb och smidig affär.
             </p>
           </div>
           

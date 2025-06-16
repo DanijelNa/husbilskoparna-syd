@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link href="/quote">
               <button className="bg-autora-green hover:bg-autora-green/90 text-white py-2 px-4 rounded-md flex items-center font-medium">
                 <ClipboardList className="h-4 w-4 mr-2" />
-                Få en värdering
+                Kontakta oss för en smidig affär
               </button>
             </Link>
             <a 
@@ -62,7 +62,7 @@ export default function Navbar() {
                   <SheetClose asChild>
                     <Link href="/quote" className="flex items-center justify-center bg-autora-green text-white py-3 px-4 rounded-md mb-2">
                       <ClipboardList className="h-4 w-4 mr-2" />
-                      Få en värdering
+                      Kontakta oss för en smidig affär
                     </Link>
                   </SheetClose>
                 </nav>

@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import heroImage from "@/assets/motorhome_hero_image.jpg";
+import heroImage from "@/assets/motorhome_hero_image.png";
 import { ClipboardList, PhoneCall } from "lucide-react";
 import { trackPhoneClick } from "@/lib/analytics";
 
@@ -22,7 +22,7 @@ export default function HeroSection() {
               <Link href="/quote">
                 <button className="autora-btn-primary flex items-center justify-center">
                   <ClipboardList className="h-5 w-5 mr-2" />
-                  Få en snabb värdering
+                  Kontakta oss nu
                 </button>
               </Link>
               <a 
@@ -84,7 +84,7 @@ export default function HeroSection() {
               </p>
               <Link href="/quote">
                 <button className="text-autora-green font-medium inline-flex items-center">
-                  Få en värdering
+                  Kontakta oss för en smidig affär
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>
@@ -99,13 +99,13 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Garanti & försäkring</h3>
+              <h3 className="text-xl font-bold mb-3">Trygghet igenom hela affären</h3>
               <p className="text-gray-700 mb-4">
-                Vi erbjuder förmånliga garantier och försäkringar för alla husbilar vi säljer.
+                Vi gör säljprocessen så enkel som möjligt för er.
               </p>
               <Link href="/quote">
                 <button className="text-autora-green font-medium inline-flex items-center">
-                  Få en värdering
+                  Kontakta oss för en smidig affär
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>
@@ -120,13 +120,13 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Kostnadsfri värdering</h3>
+              <h3 className="text-xl font-bold mb-3">Pengarna på kontot direkt</h3>
               <p className="text-gray-700 mb-4">
-                Vi erbjuder en kostnadsfri värdering av er husbil. Kontakta oss redan idag.
+                Via Swish eller konto överföring.
               </p>
               <Link href="/quote">
                 <button className="text-autora-green font-medium inline-flex items-center">
-                  Få en värdering
+                  Kontakta oss för en smidig affär
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>

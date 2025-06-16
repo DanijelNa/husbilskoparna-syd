@@ -22,7 +22,7 @@ export default function CTASection() {
             <div className="p-8 md:p-12 text-white">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Sälja din husbil?</h2>
               <p className="mb-6 text-lg">
-                Vi gör det enkelt för dig att sälja din husbil. Kontakta oss idag för en kostnadsfri värdering och ett erbjudande utan förpliktelser.
+                Vi gör det enkelt för dig att sälja din husbil. Kontakta oss idag för en snabb och smidig affär.
               </p>
               
               <div className="mb-8">
@@ -55,7 +55,7 @@ export default function CTASection() {
                 <Link href="/quote">
                   <button className="inline-flex items-center justify-center bg-white text-autora-green font-bold py-3 px-6 rounded hover:bg-gray-100 transition-colors duration-200">
                     <ClipboardList className="h-5 w-5 mr-2" />
-                    Få en snabb värdering
+                    Kontakta oss nu
                   </button>
                 </Link>
                 

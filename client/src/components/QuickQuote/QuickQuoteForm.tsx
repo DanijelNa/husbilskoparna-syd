@@ -76,6 +76,27 @@ export default function QuickQuoteForm() {
       const result = await response.json();
       
       if (result.success) {
+        // Call Go high-level webhook
+        try {
+          const webhookResponse = await fetch('https://services.leadconnectorhq.com/hooks/CIzCoguKoPyPtO4svjnu/webhook-trigger/cfc5757e-c301-40ad-87c0-2a755a1bc9bf', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: data.name,
+              email: data.email,
+              phone: data.phone,
+              registrationNumber: data.registrationNumber
+            }),
+          });
+          if (!webhookResponse.ok) {
+            console.error('Go high-level webhook error:', await webhookResponse.text());
+          }
+        } catch (webhookError) {
+          console.error('Go high-level webhook error:', webhookError);
+        }
+        
         // Track form submission event
         trackFormSubmit('quick_quote', {
           form_location: 'quote_page',

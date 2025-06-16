@@ -22,7 +22,7 @@ export default function FeaturesSection() {
             </div>
             <h3 className="text-xl font-bold mb-3">1. Kontakta oss</h3>
             <p className="text-gray-700 mb-4">
-              Ring, mejla eller fyll i vårt formulär för att beskriva din husbil. Vi återkommer snabbt med en första värdering.
+              Ring, mejla eller fyll i vårt formulär för att beskriva din husbil. Vi återkommer snabbt.
             </p>
           </div>
           
@@ -31,9 +31,14 @@ export default function FeaturesSection() {
             <div className="mx-auto h-16 w-16 rounded-full bg-autora-green flex items-center justify-center mb-5 text-white">
               <CheckCircle className="h-8 w-8" />
             </div>
-            <h3 className="text-xl font-bold mb-3">2. Besiktning</h3>
+            <h3 className="text-xl font-bold mb-3">2. Inga förpliktelser</h3>
             <p className="text-gray-700 mb-4">
-              Vi träffas för att göra en noggrann besiktning och ger dig ett erbjudande direkt på plats. Ingen förpliktelse.
+              Vi kommer till er utan några förpliktelser helt kostnadsfritt.
+              Vi går igenom husbilen kommer vi överens så köper vi husbilen i befintligt skick.
+              Inga klagomål eller efter krav från vår sida.
+              Enklare och tryggare kan det inte bli.
+              <br /><br />
+              Vårt moto är att kunden ska känna sig trygg igenom hela affären.
             </p>
           </div>
           
