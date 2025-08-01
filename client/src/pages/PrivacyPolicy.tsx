@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold mb-4 text-autora-green">2. Personuppgiftsansvarig</h2>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p><strong>Husbilsköparna Syd</strong></p>
-                <p>E-post: info@husbilskoparna.se</p>
+                <p>E-post: mats105@me.com</p>
                 <p>Telefon: 073-690 50 42</p>
               </div>
             </section>
@@ -123,7 +123,7 @@ export default function PrivacyPolicy() {
                 <li><strong>Rätt att invända:</strong> Invända mot vår behandling av dina uppgifter</li>
               </ul>
               <p className="mb-4">
-                För att utöva dina rättigheter, kontakta oss på info@husbilskoparna.se
+                För att utöva dina rättigheter, kontakta oss på mats105@me.com
               </p>
             </section>
 
@@ -164,7 +164,7 @@ export default function PrivacyPolicy() {
                 kontakta oss gärna:
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <p><strong>E-post:</strong> info@husbilskoparna.se</p>
+                <p><strong>E-post:</strong> mats105@me.com</p>
                 <p><strong>Telefon:</strong> 073-690 50 42</p>
               </div>
               <p className="mt-4">

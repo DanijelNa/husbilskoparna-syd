@@ -59,25 +59,53 @@ export default function QuickQuoteForm() {
     console.log("Form submitted with data:", data);
 
     try {
-      // Call Go high-level webhook directly
-      const webhookResponse = await fetch('https://services.leadconnectorhq.com/hooks/CIzCoguKoPyPtO4svjnu/webhook-trigger/cfc5757e-c301-40ad-87c0-2a755a1bc9bf', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          registrationNumber: data.registrationNumber
+      // Send to both GoHighLevel and Formspree simultaneously
+      const [ghlResponse, formspreeResponse] = await Promise.allSettled([
+        // GoHighLevel webhook
+        fetch('https://services.leadconnectorhq.com/hooks/CIzCoguKoPyPtO4svjnu/webhook-trigger/cfc5757e-c301-40ad-87c0-2a755a1bc9bf', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            registrationNumber: data.registrationNumber
+          }),
         }),
-      });
-      
-      if (webhookResponse.ok) {
+        // Formspree
+        fetch('https://formspree.io/f/xblkkvrn', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            registrationNumber: data.registrationNumber,
+            _subject: `Ny offertförfrågan från ${data.name}`,
+            _format: 'json'
+          }),
+        })
+      ]);
+
+      // Log results for debugging
+      console.log('GoHighLevel response:', ghlResponse);
+      console.log('Formspree response:', formspreeResponse);
+
+      // Consider success if at least one submission worked
+      const ghlSuccess = ghlResponse.status === 'fulfilled' && ghlResponse.value.ok;
+      const formspreeSuccess = formspreeResponse.status === 'fulfilled' && formspreeResponse.value.ok;
+
+      if (ghlSuccess || formspreeSuccess) {
         // Track form submission event
         trackFormSubmit('quick_quote', {
           form_location: 'quote_page',
-          registration_number: data.registrationNumber
+          registration_number: data.registrationNumber,
+          ghl_success: ghlSuccess,
+          formspree_success: formspreeSuccess
         });
         
         // Show success toast
@@ -89,7 +117,7 @@ export default function QuickQuoteForm() {
         // Move to thank you step
         setStep(2);
       } else {
-        throw new Error('Failed to submit form');
+        throw new Error('Failed to submit form to both services');
       }
     } catch (error) {
       console.error("Form submission error:", error);

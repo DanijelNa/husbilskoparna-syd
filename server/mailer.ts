@@ -79,7 +79,7 @@ export async function sendQuickQuoteEmail(data: {
     // Send email
     const info = await resend.emails.send({
       from: `${senderName} <${senderAddress}>`,
-      to: 'info@husbilskoparna.se', // This would be the actual recipient in production
+      to: 'mats105@me.com', // This would be the actual recipient in production
       subject: `Ny värderingsförfrågan från ${data.name}`,
       html: createEmailTemplate(data),
     });

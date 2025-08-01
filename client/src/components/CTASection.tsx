@@ -39,11 +39,11 @@ export default function CTASection() {
                 <div className="flex items-center mb-3">
                   <Mail className="h-5 w-5 mr-2" />
                   <a 
-                    href="mailto:info@husbilskoparna.se" 
+                    href="mailto:mats105@me.com" 
                     className="font-bold hover:underline"
-                    onClick={() => trackMailClick('info@husbilskoparna.se')}
+                    onClick={() => trackMailClick('mats105@me.com')}
                   >
-                    E-post: info@husbilskoparna.se
+                    E-post: mats105@me.com
                   </a>
                 </div>
                 <p className="text-sm opacity-90">

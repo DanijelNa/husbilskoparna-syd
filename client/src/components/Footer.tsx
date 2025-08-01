@@ -45,11 +45,11 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-autora-green" />
                 <a 
-                  href="mailto:info@husbilskoparna.se" 
+                  href="mailto:mats105@me.com" 
                   className="text-gray-300 hover:text-white"
-                  onClick={() => trackMailClick('info@husbilskoparna.se')}
+                  onClick={() => trackMailClick('mats105@me.com')}
                 >
-                  info@husbilskoparna.se
+                  mats105@me.com
                 </a>
               </li>
             </ul>
