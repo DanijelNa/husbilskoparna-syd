@@ -23,8 +23,10 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-4">Information</h4>
+            <h4 className="font-bold text-lg mb-4">Navigation</h4>
             <ul className="space-y-2">
+              <li><Link href="/" className="text-gray-300 hover:text-white">Hem</Link></li>
+              <li><Link href="/quote" className="text-gray-300 hover:text-white">Kontakta oss</Link></li>
               <li><Link href="/integritetspolicy" className="text-gray-300 hover:text-white">Integritetspolicy</Link></li>
             </ul>
           </div>
