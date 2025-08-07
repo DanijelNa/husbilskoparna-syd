@@ -1,0 +1,11 @@
+name = "husbilskoparna-syd"
+compatibility_date = "2025-01-01"
+
+[env.production]
+routes = [
+  { pattern = "xn--husbilskparnasyd-twb.se/*", zone_name = "xn--husbilskparnasyd-twb.se" }
+]
+
+[[env.production.rules]]
+type = "Text"
+globs = ["**/*"]
