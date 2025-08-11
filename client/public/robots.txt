@@ -1,10 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://xn--husbilskparnasyd-twb.se/sitemap.xml
-
-# Disallow crawling of assets that don't need indexing
-Disallow: /assets/
-
-# Updated: 2025-08-07
