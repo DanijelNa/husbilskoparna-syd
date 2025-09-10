@@ -70,7 +70,7 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/blog/posts')
+    fetch('/blog-data/posts.json')
       .then(res => res.json())
       .then(data => {
         setPosts(data.posts || []);

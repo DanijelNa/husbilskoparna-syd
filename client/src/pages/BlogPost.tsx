@@ -152,7 +152,7 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (params?.slug) {
-      fetch(`/api/blog/posts/${params.slug}`)
+      fetch(`/blog-data/${params.slug}.json`)
         .then(res => {
           if (!res.ok) {
             setNotFound(true);
