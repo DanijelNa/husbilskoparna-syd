@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "5 tecken på att det är dags att sälja din husbil",
+      "slug": "5-tecken-pa-att-det-ar-dags-att-salja-din-husbil",
+      "excerpt": "Känner du igen dig i dessa signaler? Det kan vara dags att överväga försäljning av din husbil. Om din husbil står stillastående större delen av året eller underhållskostnaderna överstiger användarglädjen, kan det vara ekonomiskt fördelaktigt att sälja.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-08-07T10:00:00",
+      "readingTime": 4,
+      "imageUrl": "/blog-images/Swedish_motorhome_lake_scene_optimized.jpg",
+      "metaDescription": "Känner du igen dig i dessa signaler? Det kan vara dags att överväga försäljning av din husbil. Läs om 5 tydliga tecken på att det är rätt tid att sälja.",
+      "tags": ["Försäljning", "Husbil", "Ekonomi", "Råd"],
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": 2,
+      "title": "Plåtis 2025: den kompletta guiden till köp och försäljning",
+      "slug": "platis-2025-kompletta-guiden-kop-forsaljning",
+      "excerpt": "Plåtis-marknaden har exploderat de senaste åren. Med sin kompakta storlek och mångsidighet har de blivit ett av de snabbast växande segmenten på den svenska husbilsmarknaden. Här är din kompletta guide.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-08-11T10:00:00",
+      "readingTime": 5,
+      "imageUrl": "/blog-images/platis_guide_2025_optimized.jpg",
+      "metaDescription": "Plåtis-marknaden har exploderat 2025. Läs den kompletta guiden till köp och försäljning av kompakta husbilar. Priser, märken, tips och råd från experterna.",
+      "tags": ["Plåtis", "Kompakt husbil", "Köp", "Försäljning", "Guide", "Priser", "Märken"],
+      "featured": true,
+      "published": true
+    }
+  ]
+}
