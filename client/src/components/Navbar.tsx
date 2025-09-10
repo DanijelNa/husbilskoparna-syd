@@ -20,7 +20,14 @@ export default function Navbar() {
             </Link>
           </div>
           
-          {/* Navigation items removed */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link 
+              href="/blog" 
+              className="text-gray-700 hover:text-[#49B265] font-medium transition-colors"
+            >
+              Blogg
+            </Link>
+          </div>
           
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/quote">
@@ -57,7 +64,14 @@ export default function Navbar() {
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4">
-                  {/* Mobile navigation items removed */}
+                  <SheetClose asChild>
+                    <Link 
+                      href="/blog" 
+                      className="text-gray-700 hover:text-[#49B265] font-medium py-2 transition-colors"
+                    >
+                      Blogg
+                    </Link>
+                  </SheetClose>
                   <div className="border-t border-gray-200 pt-4 mt-2"></div>
                   <SheetClose asChild>
                     <Link href="/quote" className="flex items-center justify-center bg-autora-green text-white py-3 px-4 rounded-md mb-2">

@@ -6,6 +6,8 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import QuotePage from "@/pages/quote";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import { useEffect } from "react";
 import { initAnalytics } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/quote" component={QuotePage} />
       <Route path="/integritetspolicy" component={PrivacyPolicy} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route component={NotFound} />
     </Switch>
   );

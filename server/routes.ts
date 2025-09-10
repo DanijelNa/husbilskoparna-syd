@@ -3,8 +3,52 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { sendQuickQuoteEmail } from "./mailer";
 import { integrateWithGHL } from "./ghl-integration";
+import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { blogPosts } from '@shared/schema';
+import { eq, desc } from 'drizzle-orm';
+
+// Initialize database connection
+const sql = neon(process.env.DATABASE_URL!);
+const db = drizzle(sql);
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Blog API endpoints
+  app.get('/api/blog/posts', async (req: Request, res: Response) => {
+    try {
+      const posts = await db
+        .select()
+        .from(blogPosts)
+        .where(eq(blogPosts.published, true))
+        .orderBy(desc(blogPosts.publishedAt));
+      
+      res.json({ posts });
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+      res.status(500).json({ error: 'Failed to fetch blog posts' });
+    }
+  });
+
+  app.get('/api/blog/posts/:slug', async (req: Request, res: Response) => {
+    try {
+      const { slug } = req.params;
+      const post = await db
+        .select()
+        .from(blogPosts)
+        .where(eq(blogPosts.slug, slug))
+        .limit(1);
+      
+      if (post.length === 0) {
+        return res.status(404).json({ error: 'Blog post not found' });
+      }
+
+      res.json({ post: post[0] });
+    } catch (error) {
+      console.error('Error fetching blog post:', error);
+      res.status(500).json({ error: 'Failed to fetch blog post' });
+    }
+  });
+
   // API endpoint for submitting quick quote form
   app.post('/api/quick-quote', async (req: Request, res: Response) => {
     try {
