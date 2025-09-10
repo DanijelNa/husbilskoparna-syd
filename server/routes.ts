@@ -3,14 +3,6 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { sendQuickQuoteEmail } from "./mailer";
 import { integrateWithGHL } from "./ghl-integration";
-import { neon } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-http';
-import { blogPosts } from '@shared/schema';
-import { eq, desc } from 'drizzle-orm';
-
-// Initialize database connection
-const sql = neon(process.env.DATABASE_URL!);
-const db = drizzle(sql);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Blog posts are now served as static files from /blog-data/*.json
