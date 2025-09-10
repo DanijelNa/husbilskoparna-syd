@@ -6,10 +6,135 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
+// SEO Meta component
+function SEOHead({ post }: { post: BlogPost }) {
+  useEffect(() => {
+    // Update document title and meta tags
+    document.title = `${post.title} | Husbilsköparna Syd`;
+    
+    // Update or create meta description
+    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    metaDescription.setAttribute('content', post.metaDescription || post.excerpt);
+    if (!document.querySelector('meta[name="description"]')) {
+      document.head.appendChild(metaDescription);
+    }
+
+    // Add Open Graph meta tags
+    const ogTags = [
+      { property: 'og:title', content: post.title },
+      { property: 'og:description', content: post.metaDescription || post.excerpt },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: `https://husbilskoparnayd.se/blog/${post.slug}` },
+      { property: 'og:image', content: post.imageUrl ? `https://husbilskoparnayd.se${post.imageUrl}` : '' },
+      { property: 'og:site_name', content: 'Husbilsköparna Syd' },
+      { property: 'article:author', content: post.author },
+      { property: 'article:published_time', content: post.publishedAt },
+      { property: 'article:section', content: 'Husbil' },
+    ];
+
+    ogTags.forEach(({ property, content }) => {
+      if (content) {
+        let metaTag = document.querySelector(`meta[property="${property}"]`) || document.createElement('meta');
+        metaTag.setAttribute('property', property);
+        metaTag.setAttribute('content', content);
+        if (!document.querySelector(`meta[property="${property}"]`)) {
+          document.head.appendChild(metaTag);
+        }
+      }
+    });
+
+    // Add Twitter Card meta tags
+    const twitterTags = [
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: post.title },
+      { name: 'twitter:description', content: post.metaDescription || post.excerpt },
+      { name: 'twitter:image', content: post.imageUrl ? `https://husbilskoparnayd.se${post.imageUrl}` : '' },
+    ];
+
+    twitterTags.forEach(({ name, content }) => {
+      if (content) {
+        let metaTag = document.querySelector(`meta[name="${name}"]`) || document.createElement('meta');
+        metaTag.setAttribute('name', name);
+        metaTag.setAttribute('content', content);
+        if (!document.querySelector(`meta[name="${name}"]`)) {
+          document.head.appendChild(metaTag);
+        }
+      }
+    });
+
+    // Add JSON-LD structured data
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.metaDescription || post.excerpt,
+      "image": post.imageUrl ? `https://husbilskoparnayd.se${post.imageUrl}` : undefined,
+      "author": {
+        "@type": "Organization",
+        "name": post.author,
+        "url": "https://husbilskoparnayd.se"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Husbilsköparna Syd",
+        "url": "https://husbilskoparnayd.se",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://husbilskoparnayd.se/husbilskoparna-logo-green-black.png"
+        }
+      },
+      "datePublished": post.publishedAt,
+      "dateModified": post.publishedAt,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://husbilskoparnayd.se/blog/${post.slug}`
+      },
+      "url": `https://husbilskoparnayd.se/blog/${post.slug}`,
+      "wordCount": post.content.split(' ').length,
+      "keywords": post.tags?.join(', '),
+      "inLanguage": "sv-SE",
+      "about": {
+        "@type": "Thing",
+        "name": "Husbil",
+        "description": "Motorhome sales and buying guide"
+      }
+    };
+
+    // Remove existing structured data script
+    const existingScript = document.querySelector('script[type="application/ld+json"]');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    // Add new structured data
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Add canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    canonicalLink.setAttribute('href', `https://husbilskoparnayd.se/blog/${post.slug}`);
+    if (!document.querySelector('link[rel="canonical"]')) {
+      document.head.appendChild(canonicalLink);
+    }
+
+    // Cleanup function to reset on unmount
+    return () => {
+      document.title = 'Husbilsköparna Syd - Vi köper din husbil';
+    };
+  }, [post]);
+
+  return null;
+}
+
 interface BlogPost {
   id: number;
   title: string;
   slug: string;
+  excerpt: string;
   content: string;
   author: string;
   publishedAt: string;
@@ -124,6 +249,7 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white text-black">
+      {post && <SEOHead post={post} />}
       <Navbar />
       
       <main className="container mx-auto px-4 py-8">
@@ -136,15 +262,31 @@ export default function BlogPost() {
         </Link>
 
         <article className="max-w-4xl mx-auto">
-          {/* Hero Image */}
+          {/* Hero Image - SEO Optimized with responsive loading */}
           {post.imageUrl && (
-            <div className="aspect-video overflow-hidden rounded-lg mb-8">
-              <img
-                src={post.imageUrl}
-                alt={post.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <figure className="aspect-video overflow-hidden rounded-lg mb-8">
+              <picture>
+                <source 
+                  media="(max-width: 480px)" 
+                  srcSet="/blog-images/Swedish_motorhome_lake_scene_small.jpg"
+                />
+                <source 
+                  media="(max-width: 768px)" 
+                  srcSet="/blog-images/Swedish_motorhome_lake_scene_medium.jpg"
+                />
+                <img
+                  src={post.imageUrl}
+                  alt="Svensk husbil parkerad vid en pittoresk sjö med berg i bakgrunden - representerar beslutsögonblicket om att sälja sin husbil"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  width="1200"
+                  height="675"
+                />
+              </picture>
+              <figcaption className="sr-only">
+                Husbil vid svensk sjö - illustration till artikel om när det är dags att sälja sin husbil
+              </figcaption>
+            </figure>
           )}
 
           {/* Article Header */}
