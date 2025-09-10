@@ -13,9 +13,27 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://xn--husbilskparnasyd-twb.se/blog</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn--husbilskparnasyd-twb.se/integritetspolicy</loc>
     <lastmod>2025-08-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://xn--husbilskparnasyd-twb.se/blog/5-tecken-pa-att-det-ar-dags-att-salja-din-husbil</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xn--husbilskparnasyd-twb.se/blog/platis-2025-kompletta-guiden-kop-forsaljning</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
