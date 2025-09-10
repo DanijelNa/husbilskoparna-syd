@@ -6,6 +6,52 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 
+// SEO optimization for blog listing page
+function BlogSEOHead() {
+  useEffect(() => {
+    document.title = 'Husbilsbloggen - Expertråd om Husbilar | Husbilsköparna Syd';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    metaDescription.setAttribute('content', 'Läs expertråd om husbilar - från köp och försäljning till underhåll och äventyr. Tips som hjälper dig ta rätt beslut om din husbil.');
+    if (!document.querySelector('meta[name="description"]')) {
+      document.head.appendChild(metaDescription);
+    }
+
+    // Add structured data for blog listing
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Husbilsbloggen - Husbilsköparna Syd",
+      "description": "Expertråd och tips om husbilar från Husbilsköparna Syd",
+      "url": "https://husbilskoparnayd.se/blog",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Husbilsköparna Syd",
+        "url": "https://husbilskoparnayd.se"
+      }
+    };
+
+    const existingScript = document.querySelector('script[type="application/ld+json"]');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.title = 'Husbilsköparna Syd - Vi köper din husbil';
+    };
+  }, []);
+
+  return null;
+}
+
 interface BlogPost {
   id: number;
   title: string;
@@ -43,18 +89,19 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white text-black">
+      <BlogSEOHead />
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-16">
+        {/* Header - SEO optimized with semantic HTML */}
+        <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Husbilsbloggen
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Tips, råd och expertkunskap om husbilar - från köp och försäljning till underhåll och äventyr.
           </p>
-        </div>
+        </header>
 
         {/* Loading State */}
         {loading && (
@@ -64,22 +111,26 @@ export default function Blog() {
           </div>
         )}
 
-        {/* Blog Posts Grid */}
+        {/* Blog Posts Grid - SEO optimized */}
         {!loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="main">
             {posts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
-                  {/* Featured Image */}
-                  {post.imageUrl && (
-                    <div className="aspect-video overflow-hidden rounded-t-lg">
-                      <img
-                        src={post.imageUrl}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  )}
+              <article key={post.id}>
+                <Link href={`/blog/${post.slug}`}>
+                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
+                    {/* Featured Image - SEO optimized */}
+                    {post.imageUrl && (
+                      <div className="aspect-video overflow-hidden rounded-t-lg">
+                        <img
+                          src={post.imageUrl}
+                          alt={`Bild för artikel: ${post.title}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                          width="400"
+                          height="225"
+                        />
+                      </div>
+                    )}
                   
                   <CardHeader className="pb-3">
                     {/* Tags */}
@@ -97,7 +148,7 @@ export default function Blog() {
                       </div>
                     )}
 
-                    {/* Title */}
+                    {/* Title - SEO optimized heading */}
                     <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#49B265] transition-colors">
                       {post.title}
                     </h2>
@@ -127,10 +178,11 @@ export default function Blog() {
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </CardContent>
-                </Card>
-              </Link>
+                  </Card>
+                </Link>
+              </article>
             ))}
-          </div>
+          </section>
         )}
 
         {/* Empty State */}
