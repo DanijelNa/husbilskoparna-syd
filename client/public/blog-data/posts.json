@@ -1,6 +1,34 @@
 {
   "posts": [
     {
+      "id": 5,
+      "title": "Husbilsbedömning: Metoder för värdering och försäljning",
+      "slug": "husbilsbedomning-metoder-for-vardering-och-forsaljning",
+      "excerpt": "Att sälja sin husbil kan kännas som en berg-och-dalbana av känslor och praktiska överväganden. Med rätt kunskap och strategi får du ut bästa möjliga värde för din husbil.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-10-03T10:00:00",
+      "readingTime": 6,
+      "imageUrl": "/blog-images/valuation_methods_optimized.jpg",
+      "metaDescription": "Lär dig de bästa metoderna för husbilsbedömning och värdering. Få expertråd om prissättning, försäljningsstrategier och hur du maximerar värdet.",
+      "tags": ["Värdering", "Bedömning", "Försäljning", "Husbil", "Prissättning"],
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": 4,
+      "title": "Fördelar med säljartjänster för husbilar",
+      "slug": "fordelar-med-saljartjanster-for-husbilar",
+      "excerpt": "Att sälja sin husbil kan kännas som ett stort projekt. Men med rätt hjälp blir det faktiskt både enklare och mer lönsamt än du kanske tror. Få tillgång till verktyg och kunskap som gör skillnad.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-10-03T10:00:00",
+      "readingTime": 5,
+      "imageUrl": "/blog-images/sales_service_benefits_optimized.jpg",
+      "metaDescription": "Upptäck fördelarna med professionella säljartjänster för husbilar. Få rätt pris, trygga transaktioner och smidig marknadsföring – allt från experter.",
+      "tags": ["Säljartjänster", "Försäljning", "Professionell hjälp", "Husbil", "Trygghet"],
+      "featured": true,
+      "published": true
+    },
+    {
       "id": 3,
       "title": "5 bästa tips för att sälja din husbil som nybörjare",
       "slug": "5-basta-tips-for-att-salja-din-husbil-som-nyborjare",
