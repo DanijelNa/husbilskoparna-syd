@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "id": 8,
+      "title": "Värdefulla tips för nybörjare vid husbilsförsäljning",
+      "slug": "vardefulla-tips-for-nyborjare-vid-husbilsforsaljning",
+      "excerpt": "Ska du sälja din husbil för första gången? Här är de bästa råden för att göra försäljningen både enklare och tryggare – från prissättning till pappersarbete.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-10-05T09:00:00",
+      "readingTime": 7,
+      "imageUrl": "/blog-images/beginner_motorhome_sale_tips_optimized.jpg",
+      "metaDescription": "Din guide till att sälja husbilen rätt – från prissättning till pappersarbete. Praktiska råd som gör försäljningen både enklare och tryggare.",
+      "tags": ["Nybörjare", "Försäljningstips", "Husbilsförsäljning", "Prissättning", "Återförsäljare", "Säkerhet"],
+      "featured": true,
+      "published": true
+    },
+    {
       "id": 7,
       "title": "Vad är försäljningstjänster för köpare och säljare av husbilar?",
       "slug": "vad-ar-forsaljningstjanster-for-kopare-och-saljare-av-husbilar",
