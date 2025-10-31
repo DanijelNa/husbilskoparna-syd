@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "id": 6,
+      "title": "Effektiva försäljningsstrategier för husbilar online",
+      "slug": "effektiva-forsaljningsstrategier-for-husbilar-online",
+      "excerpt": "Att sälja husbilar online handlar om så mycket mer än bara att lägga upp en annons och hoppas på det bästa. Det handlar om att skapa en resa där potentiella köpare känner sig sedda, förstådda och trygga i sitt beslut.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-10-03T10:00:00",
+      "readingTime": 7,
+      "imageUrl": "/blog-images/online_sales_strategies_optimized.jpg",
+      "metaDescription": "Lär dig effektiva strategier för att sälja husbilar online. Från rätt annonser och prissättning till att bygga förtroende och skapa en smidig köpprocess.",
+      "tags": ["Online försäljning", "Marknadsföring", "Försäljningsstrategier", "Husbil", "Digital strategi"],
+      "featured": true,
+      "published": true
+    },
+    {
       "id": 5,
       "title": "Husbilsbedömning: Metoder för värdering och försäljning",
       "slug": "husbilsbedomning-metoder-for-vardering-och-forsaljning",
