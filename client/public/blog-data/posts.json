@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "id": 7,
+      "title": "Vad är försäljningstjänster för köpare och säljare av husbilar?",
+      "slug": "vad-ar-forsaljningstjanster-for-kopare-och-saljare-av-husbilar",
+      "excerpt": "Att köpa eller sälja en husbil ska vara en spännande milstolpe – inte en källa till huvudvärk. Här berättar vi hur rätt stöd kan förvandla hela processen till något du faktiskt kan njuta av.",
+      "author": "Husbilsköparna Syd",
+      "publishedAt": "2025-10-03T10:00:00",
+      "readingTime": 6,
+      "imageUrl": "/blog-images/motorhome_dealership_services_optimized.jpg",
+      "metaDescription": "Lär dig allt om försäljningstjänster för husbilar. Få hjälp med värdering, försäljning, finansiering och verkstadstjänster för en trygg och smidig husbilsaffär.",
+      "tags": ["Försäljningstjänster", "Köpare", "Säljare", "Husbil", "Professionell hjälp", "Service"],
+      "featured": true,
+      "published": true
+    },
+    {
       "id": 6,
       "title": "Effektiva försäljningsstrategier för husbilar online",
       "slug": "effektiva-forsaljningsstrategier-for-husbilar-online",
